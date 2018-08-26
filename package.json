@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/joaopalmeiro/Kakuna-Ipsum-Generator#readme",
   "dependencies": {
-    "browser-sync": "^2.24.6",
+    "browser-sync": "^2.24.7",
     "express": "^4.16.3",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.0.0",
