@@ -1,0 +1,13 @@
+{
+  "name": "kakuna-ipsum-generator",
+  "version": "1.0.0",
+  "description": "A 'hard' coded Lorem Ipsum Generator that generates paragraphs with the famous 'KAKUNA used HARDEN!'",
+  "main": "app.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "João Palmeiro",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
