@@ -7,10 +7,7 @@ const loremIpsum = new GenerateNewText();
 function GenerateNewText() {
     // Add property to the object
     this.sentences = [
-        "Awesome quote number 1.",
-        "Second awesome quote.",
-        "Yet another great quote.",
-        "Ok, last quote."
+        "KAKUNA used HARDEN!"
     ];
 }
 

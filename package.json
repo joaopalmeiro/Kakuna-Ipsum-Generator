@@ -4,10 +4,34 @@
   "description": "A 'hard' coded Lorem Ipsum Generator that generates paragraphs with the famous 'KAKUNA used HARDEN!'",
   "main": "app.js",
   "scripts": {},
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaopalmeiro/Kakuna-Ipsum-Generator.git"
+  },
+  "keywords": [
+    "lorem ipsum",
+    "random text",
+    "random words",
+    "generator"
+  ],
   "author": "João Palmeiro",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joaopalmeiro/Kakuna-Ipsum-Generator/issues"
+  },
+  "homepage": "https://github.com/joaopalmeiro/Kakuna-Ipsum-Generator#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "browser-sync": "^2.24.6",
+    "express": "^4.16.3",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4"
+  },
+  "engines": {
+    "node": "8.11.3"
   }
 }
