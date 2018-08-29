@@ -29,7 +29,8 @@
     "gulp-nodemon": "^2.2.1",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.4"
+    "gulp-sourcemaps": "^2.6.4",
+    "serve-favicon": "^2.5.0"
   },
   "engines": {
     "node": "8.11.3"
