@@ -7,6 +7,7 @@ const loremIpsum = new GenerateNewText();
 function GenerateNewText() {
     // Add property to the object
     this.sentences = [
+        "KAKUNA used HARDEN!",
         "KAKUNA used HARDEN!"
     ];
 }

@@ -24,6 +24,8 @@
       <input placeholder='Throw your number!' type='number' min='0' class='paragraph-number' name='numberOfParagraphs'>
       <button class='generate-button'>Generate!</button>
     </form>
+    <button class="copy-button"><span class="copy-cta">Master Copy!</span><img class="copy-icon" src="copy_pkmn.svg"
+        alt="Copy Icon"></button>
     <div class='generated-text'>
       <div class='placeholder-div'></div>
     </div>
@@ -34,6 +36,37 @@
         data-show-count="true" aria-label="Star joaopalmeiro/Kakuna-Ipsum-Generator on GitHub">Star</a>
     </footer>
   </div>
+
+  <script>
+    const innerContents = document.getElementsByClassName("generated-text")[0].innerHTML;
+    if (!innerContents.includes("<p>")) {
+      document.getElementsByClassName("copy-button")[0].style.display = "none";
+      document.getElementsByClassName("generated-text")[0].style.display = "none";
+    };
+
+    const copyButton = document.querySelector('.copy-button');
+
+    copyButton.addEventListener('click', () => {
+      const selection = window.getSelection();
+      const range = document.createRange();
+      const referenceNode = document.getElementsByClassName("generated-text")[0];
+      range.selectNodeContents(referenceNode);
+      selection.removeAllRanges();
+      selection.addRange(range);
+
+      document.execCommand('copy');
+      selection.removeAllRanges();
+
+      const original = document.querySelector(".copy-cta").textContent;
+      document.querySelector(".copy-cta").textContent = 'Gotcha!';
+      copyButton.classList.add('success');
+
+      setTimeout(() => {
+        document.querySelector(".copy-cta").textContent = original;
+        copyButton.classList.remove('success');
+      }, 1200);
+    });
+  </script>
 </body>
 
 </html>
