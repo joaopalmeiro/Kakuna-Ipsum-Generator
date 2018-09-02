@@ -1,3 +1,25 @@
-body {
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+html {
   background-color: #f6cd31;
-  color: #2f2f2f; }
+  color: #2f2f2f;
+  font-family: 'Roboto', sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit; }
+
+body {
+  margin: 0;
+  padding: 50px; }
+  body h1,
+  body p {
+    margin: 0; }
+  body .kakuna-generator {
+    display: grid;
+    grid-gap: 20px; }
+    body .kakuna-generator > .header > .logo {
+      max-width: 200px; }

@@ -1,30 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="style.min.css" rel="stylesheet" text="text/css" />
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <link href='style.min.css' rel='stylesheet' text='text/css' />
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
   <title>Kakuna Ipsum Generator</title>
 </head>
 
 <body>
-
-  <h1 class="title">Kakuna Ipsum Generator</h1>
-
-  <p class="description">A 'hard' coded Lorem Ipsum Generator that generates paragraphs with the famous 'KAKUNA used
-    HARDEN!'</p>
-
-  <form action="/" method="POST">
-    <input type="number" class="paragraph-number" name="numberOfParagraphs">
-    <input type="submit" value="Generate" class="generate-button">
-  </form>
-
-  <div class="generated-text">
-    <div class='placeholder-div'></div>
+  <div class='kakuna-generator'>
+    <header class='header'>
+      <div class='logo'>
+        <img src='kakuna-eye.svg' alt='Kakuna Eye' onerror='this.onerror=null; this.src="kakuna-eye.png"'>
+      </div>
+      <h1 class='title'>Kakuna Ipsum Generator</h1>
+      <p class='description'>A 'hard' coded Lorem Ipsum Generator that generates paragraphs with the famous 'KAKUNA
+        used HARDEN!'</p>
+    </header>
+    <div class='input'>
+      <form action='/' method='POST'>
+        <input type='number' class='paragraph-number' name='numberOfParagraphs'>
+        <button class='generate-button'>Generate</button>
+      </form>
+    </div>
+    <div class='generated-text'>
+      <div class='placeholder-div'></div>
+    </div>
+    <footer class='footer'>
+      <a class="github-button" href="https://github.com/joaopalmeiro" aria-label="Follow @joaopalmeiro on GitHub">Follow
+        @joaopalmeiro</a>
+      <a class="github-button" href="https://github.com/joaopalmeiro/Kakuna-Ipsum-Generator" data-icon="octicon-star"
+        data-show-count="true" aria-label="Star joaopalmeiro/Kakuna-Ipsum-Generator on GitHub">Star</a>
+    </footer>
   </div>
-
 </body>
 
 </html>

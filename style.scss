@@ -1,9 +1,48 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 // BEGIN Variables
 $background-color: #f6cd31;
 $text-color: #2f2f2f;
-// END Variables
 
-body {
+// END Variables
+// BEGIN Style
+html {
     background-color: $background-color;
     color: $text-color;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
 }
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 50px;
+
+    h1,
+    p {
+        margin: 0;
+    }
+
+    .kakuna-generator {
+        display: grid;
+        grid-gap: 20px;
+
+        >.header {
+            // display: grid;
+
+            >.logo {
+                max-width: 200px;
+            }
+
+            >.title {}
+
+            >.description {}
+        }
+    }
+}
+
+// END Style
