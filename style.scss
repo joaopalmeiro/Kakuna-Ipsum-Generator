@@ -71,10 +71,10 @@ html {
 
 body {
     margin: 0;
-    padding: 50px;
+    margin: 50px;
 
     h1,
-    p {
+    p.description {
         margin: 0;
     }
 
@@ -82,20 +82,24 @@ body {
         display: grid;
         grid-gap: 50px;
         grid-template-rows: repeat(4, auto);
+        justify-items: center;
 
         >.header {
             display: grid;
-            grid-gap: 20px;
-            grid-template-rows: auto auto;
-            grid-template-columns: 1fr 1fr;
+            grid-gap: 25px;
+            grid-template-columns: auto auto;
+            grid-template-rows: 1fr 1fr;
 
             >.logo {
+                min-width: 200px;
+                display: grid;
                 grid-row: span 2;
             }
 
-            >.title {}
-
-            >.description {}
+            >.title {
+                align-self: end;
+                text-transform: uppercase;
+            }
         }
 
         >.input {
@@ -117,6 +121,16 @@ body {
 
             >button {
                 @include form-element(right);
+            }
+        }
+
+        >.generated-text {
+            p:first-child {
+                margin-top: 0;
+            }
+
+            p:last-child {
+                margin-bottom: 0;
             }
         }
     }

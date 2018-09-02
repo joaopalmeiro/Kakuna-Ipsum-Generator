@@ -14,21 +14,28 @@ html {
 
 body {
   margin: 0;
-  padding: 50px; }
+  margin: 50px; }
   body h1,
-  body p {
+  body p.description {
     margin: 0; }
   body .kakuna-generator {
     display: grid;
     grid-gap: 50px;
-    grid-template-rows: repeat(4, auto); }
+    grid-template-rows: repeat(4, auto);
+    justify-items: center; }
     body .kakuna-generator > .header {
       display: grid;
-      grid-gap: 20px;
-      grid-template-rows: auto auto;
-      grid-template-columns: 1fr 1fr; }
+      grid-gap: 25px;
+      grid-template-columns: auto auto;
+      grid-template-rows: 1fr 1fr; }
       body .kakuna-generator > .header > .logo {
+        min-width: 200px;
+        display: grid;
         grid-row: span 2; }
+      body .kakuna-generator > .header > .title {
+        -ms-flex-item-align: end;
+            align-self: end;
+        text-transform: uppercase; }
     body .kakuna-generator > .input > input {
       border: 1px solid #eeeeee;
       background-color: #fcfcfc;
@@ -88,3 +95,7 @@ body {
         outline: none; }
       body .kakuna-generator > .input > button:invalid {
         border-right-color: #cc0000; }
+    body .kakuna-generator > .generated-text p:first-child {
+      margin-top: 0; }
+    body .kakuna-generator > .generated-text p:last-child {
+      margin-bottom: 0; }
