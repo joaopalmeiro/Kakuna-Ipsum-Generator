@@ -2,7 +2,7 @@
 html {
   background-color: #f6cd31;
   color: #2f2f2f;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
@@ -20,6 +20,71 @@ body {
     margin: 0; }
   body .kakuna-generator {
     display: grid;
-    grid-gap: 20px; }
-    body .kakuna-generator > .header > .logo {
-      max-width: 200px; }
+    grid-gap: 50px;
+    grid-template-rows: repeat(4, auto); }
+    body .kakuna-generator > .header {
+      display: grid;
+      grid-gap: 20px;
+      grid-template-rows: auto auto;
+      grid-template-columns: 1fr 1fr; }
+      body .kakuna-generator > .header > .logo {
+        grid-row: span 2; }
+    body .kakuna-generator > .input > input {
+      border: 1px solid #eeeeee;
+      background-color: #fcfcfc;
+      border-left: 3px solid;
+      border-radius: 5px;
+      -webkit-transition: border-color .5s ease-out;
+      -o-transition: border-color .5s ease-out;
+      transition: border-color .5s ease-out;
+      -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+              box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      padding: .5rem;
+      border-left-color: #999999;
+      font-family: "Roboto", sans-serif;
+      -moz-appearance: textfield; }
+      body .kakuna-generator > .input > input:hover {
+        border-left-color: #2f2f2f; }
+      body .kakuna-generator > .input > input:focus {
+        border-left-color: #9c7b00;
+        outline: none; }
+      body .kakuna-generator > .input > input:invalid {
+        border-left-color: #cc0000; }
+      body .kakuna-generator > .input > input::-webkit-inner-spin-button, body .kakuna-generator > .input > input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0; }
+      body .kakuna-generator > .input > input.placeholder {
+        color: #2f2f2f;
+        opacity: .5; }
+      body .kakuna-generator > .input > input:-moz-placeholder {
+        color: #2f2f2f;
+        opacity: .5; }
+      body .kakuna-generator > .input > input::-moz-placeholder {
+        color: #2f2f2f;
+        opacity: .5; }
+      body .kakuna-generator > .input > input:-ms-input-placeholder {
+        color: #2f2f2f;
+        opacity: .5; }
+      body .kakuna-generator > .input > input::-webkit-input-placeholder {
+        color: #2f2f2f;
+        opacity: .5; }
+    body .kakuna-generator > .input > button {
+      border: 1px solid #eeeeee;
+      background-color: #fcfcfc;
+      border-right: 3px solid;
+      border-radius: 5px;
+      -webkit-transition: border-color .5s ease-out;
+      -o-transition: border-color .5s ease-out;
+      transition: border-color .5s ease-out;
+      -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+              box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      padding: .5rem;
+      border-right-color: #999999;
+      font-family: "Roboto", sans-serif; }
+      body .kakuna-generator > .input > button:hover {
+        border-right-color: #2f2f2f; }
+      body .kakuna-generator > .input > button:focus {
+        border-right-color: #9c7b00;
+        outline: none; }
+      body .kakuna-generator > .input > button:invalid {
+        border-right-color: #cc0000; }

@@ -20,12 +20,10 @@
       <p class='description'>A 'hard' coded Lorem Ipsum Generator that generates paragraphs with the famous 'KAKUNA
         used HARDEN!'</p>
     </header>
-    <div class='input'>
-      <form action='/' method='POST'>
-        <input type='number' class='paragraph-number' name='numberOfParagraphs'>
-        <button class='generate-button'>Generate</button>
-      </form>
-    </div>
+    <form class='input' action='/' method='POST'>
+      <input placeholder='Throw your number!' type='number' min='0' class='paragraph-number' name='numberOfParagraphs'>
+      <button class='generate-button'>Generate!</button>
+    </form>
     <div class='generated-text'>
       <div class='placeholder-div'></div>
     </div>
