@@ -54,17 +54,21 @@
       selection.removeAllRanges();
       selection.addRange(range);
 
-      document.execCommand('copy');
-      selection.removeAllRanges();
+      try {
+        document.execCommand('copy');
+        selection.removeAllRanges();
 
-      const original = document.querySelector(".copy-cta").textContent;
-      document.querySelector(".copy-cta").textContent = 'Gotcha!';
-      copyButton.classList.add('success');
+        const original = document.querySelector(".copy-cta").textContent;
+        document.querySelector(".copy-cta").textContent = 'Gotcha!';
+        copyButton.classList.add('success');
 
-      setTimeout(() => {
-        document.querySelector(".copy-cta").textContent = original;
-        copyButton.classList.remove('success');
-      }, 1200);
+        setTimeout(() => {
+          document.querySelector(".copy-cta").textContent = original;
+          copyButton.classList.remove('success');
+        }, 1200);
+      } catch (e) {
+        alert('Please select the text and press Ctrl/Cmd+C to copy it.');
+      }
     });
   </script>
 </body>
