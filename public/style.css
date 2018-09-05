@@ -25,6 +25,9 @@ html {
 
 body {
   margin: 50px; }
+  @media (max-width: 500px) {
+    body {
+      margin: 25px; } }
   body h1,
   body p.description {
     margin: 0; }
@@ -41,15 +44,25 @@ body {
       @media (max-width: 700px) {
         body .kakuna-generator > .header {
           grid-template-columns: auto;
-          grid-template-rows: repeat(3, 1fr); } }
+          grid-template-rows: repeat(3, auto);
+          justify-items: center; } }
       body .kakuna-generator > .header > .logo {
         min-width: 200px;
         display: grid;
         grid-row: span 2; }
+        @media (max-width: 700px) {
+          body .kakuna-generator > .header > .logo {
+            grid-row: span 1; } }
       body .kakuna-generator > .header > .title {
         -ms-flex-item-align: end;
             align-self: end;
         text-transform: uppercase; }
+        @media (max-width: 500px) {
+          body .kakuna-generator > .header > .title {
+            text-align: center; } }
+      @media (max-width: 700px) {
+        body .kakuna-generator > .header .description {
+          text-align: center; } }
     body .kakuna-generator > .input > input {
       border: 1px solid #eeeeee;
       background-color: #fcfcfc;
@@ -122,6 +135,9 @@ body {
         margin-bottom: 0; }
       body .kakuna-generator > .generated-text p {
         text-align: justify; }
+        @media (max-width: 500px) {
+          body .kakuna-generator > .generated-text p {
+            text-align: left; } }
     body .kakuna-generator > .copy-button {
       border: 1px solid #eeeeee;
       background-color: #fcfcfc;

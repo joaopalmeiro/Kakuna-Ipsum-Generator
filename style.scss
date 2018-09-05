@@ -37,6 +37,12 @@ $invalid-input-color: #cc0000;
     }
 }
 
+@mixin phone-screens {
+    @media (max-width: 500px) {
+        @content;
+    }
+}
+
 @keyframes blink {
     from {
         background: $field-input-color;
@@ -88,6 +94,10 @@ html {
 body {
     margin: 50px;
 
+    @include phone-screens {
+        margin: 25px;
+    }
+
     h1,
     p.description {
         margin: 0;
@@ -107,18 +117,33 @@ body {
 
             @include smaller-screens {
                 grid-template-columns: auto;
-                grid-template-rows: repeat(3, 1fr);
+                grid-template-rows: repeat(3, auto);
+                justify-items: center;
             }
 
             >.logo {
                 min-width: 200px;
                 display: grid;
                 grid-row: span 2;
+
+                @include smaller-screens {
+                    grid-row: span 1;
+                }
             }
 
             >.title {
                 align-self: end;
                 text-transform: uppercase;
+
+                @include phone-screens {
+                    text-align: center;
+                }
+            }
+
+            .description {
+                @include smaller-screens {
+                    text-align: center;
+                }
             }
         }
 
@@ -156,6 +181,10 @@ body {
 
             p {
                 text-align: justify;
+
+                @include phone-screens {
+                    text-align: left;
+                }
             }
 
             border: 3px solid $focus-input-color;
