@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-$font-family: 'Roboto',
-sans-serif;
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+$font-family: "Roboto", sans-serif;
 $background-color: #f6cd31;
 $text-color: #2f2f2f;
 $focus-input-color: #9c7b00;
@@ -10,212 +9,212 @@ $field-input-color: #fcfcfc;
 $invalid-input-color: #cc0000;
 
 @mixin placeholder {
-    &.placeholder {
-        @content;
-    }
+  &.placeholder {
+    @content;
+  }
 
-    &:-moz-placeholder {
-        @content;
-    }
+  &:-moz-placeholder {
+    @content;
+  }
 
-    &::-moz-placeholder {
-        @content;
-    }
+  &::-moz-placeholder {
+    @content;
+  }
 
-    &:-ms-input-placeholder {
-        @content;
-    }
+  &:-ms-input-placeholder {
+    @content;
+  }
 
-    &::-webkit-input-placeholder {
-        @content;
-    }
+  &::-webkit-input-placeholder {
+    @content;
+  }
 }
 
 @mixin smaller-screens {
-    @media (max-width: 700px) {
-        @content;
-    }
+  @media (max-width: 700px) {
+    @content;
+  }
 }
 
 @mixin phone-screens {
-    @media (max-width: 500px) {
-        @content;
-    }
+  @media (max-width: 500px) {
+    @content;
+  }
 }
 
 @keyframes blink {
-    from {
-        background: $field-input-color;
-    }
+  from {
+    background: $field-input-color;
+  }
 
-    to {
-        background: $invalid-input-color;
-    }
+  to {
+    background: $invalid-input-color;
+  }
 }
 
 @mixin form-element($direction) {
-    border: 1px solid $border-input-color;
-    background-color: $field-input-color;
-    border-#{$direction}: 3px solid;
-    border-radius: 5px;
-    transition: border-color .5s ease-out;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
-    padding: .5rem;
-    border-#{$direction}-color: $default-input-color;
-    font-family: $font-family;
+  border: 1px solid $border-input-color;
+  background-color: $field-input-color;
+  border-#{$direction}: 3px solid;
+  border-radius: 5px;
+  transition: border-color 0.5s ease-out;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  border-#{$direction}-color: $default-input-color;
+  font-family: $font-family;
 
-    &:hover {
-        border-#{$direction}-color: $text-color;
-    }
+  &:hover {
+    border-#{$direction}-color: $text-color;
+  }
 
-    &:focus {
-        border-#{$direction}-color: $focus-input-color;
-        outline: none;
-    }
+  &:focus {
+    border-#{$direction}-color: $focus-input-color;
+    outline: none;
+  }
 
-    &:invalid {
-        border-#{$direction}-color: $invalid-input-color;
-    }
+  &:invalid {
+    border-#{$direction}-color: $invalid-input-color;
+  }
 }
 
 html {
-    background-color: $background-color;
-    color: $text-color;
-    font-family: $font-family;
-    box-sizing: border-box;
+  background-color: $background-color;
+  color: $text-color;
+  font-family: $font-family;
+  box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
-    margin: 50px;
+  margin: 50px;
 
-    @include phone-screens {
-        margin: 25px;
-    }
+  @include phone-screens {
+    margin: 25px;
+  }
 
-    h1,
-    p.description {
-        margin: 0;
-    }
+  h1,
+  p.description {
+    margin: 0;
+  }
 
-    .kakuna-generator {
-        display: grid;
-        grid-gap: 50px;
-        grid-template-rows: repeat(5, auto);
+  .kakuna-generator {
+    display: grid;
+    grid-gap: 50px;
+    grid-template-rows: repeat(5, auto);
+    justify-items: center;
+
+    > .header {
+      display: grid;
+      grid-gap: 25px;
+      grid-template-columns: auto auto;
+      grid-template-rows: 1fr 1fr;
+
+      @include smaller-screens {
+        grid-template-columns: auto;
+        grid-template-rows: repeat(3, auto);
         justify-items: center;
+      }
 
-        >.header {
-            display: grid;
-            grid-gap: 25px;
-            grid-template-columns: auto auto;
-            grid-template-rows: 1fr 1fr;
+      > .logo {
+        min-width: 200px;
+        display: grid;
+        grid-row: span 2;
 
-            @include smaller-screens {
-                grid-template-columns: auto;
-                grid-template-rows: repeat(3, auto);
-                justify-items: center;
-            }
-
-            >.logo {
-                min-width: 200px;
-                display: grid;
-                grid-row: span 2;
-
-                @include smaller-screens {
-                    grid-row: span 1;
-                }
-            }
-
-            >.title {
-                align-self: end;
-                text-transform: uppercase;
-
-                @include phone-screens {
-                    text-align: center;
-                }
-            }
-
-            .description {
-                @include smaller-screens {
-                    text-align: center;
-                }
-            }
+        @include smaller-screens {
+          grid-row: span 1;
         }
+      }
 
-        >.input {
-            >input {
-                @include form-element(left);
-                -moz-appearance: textfield;
+      > .title {
+        align-self: end;
+        text-transform: uppercase;
 
-                &::-webkit-inner-spin-button,
-                &::-webkit-outer-spin-button {
-                    -webkit-appearance: none;
-                    margin: 0;
-                }
-
-                @include placeholder {
-                    color: $text-color;
-                    opacity: .5;
-                }
-            }
-
-            >button {
-                @include form-element(right);
-                cursor: pointer;
-            }
+        @include phone-screens {
+          text-align: center;
         }
+      }
 
-        >.generated-text {
-            p:first-child {
-                margin-top: 0;
-            }
-
-            p:last-child {
-                margin-bottom: 0;
-            }
-
-            p {
-                text-align: justify;
-
-                @include phone-screens {
-                    text-align: left;
-                }
-            }
-
-            border: 3px solid $focus-input-color;
-            border-radius: 5px;
-            box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
-            padding: 10px;
+      .description {
+        @include smaller-screens {
+          text-align: center;
         }
-
-        >.copy-button {
-            @include form-element(left);
-            cursor: pointer;
-
-            >.copy-cta {
-                display: inline-block;
-                vertical-align: middle;
-            }
-
-            >.copy-icon {
-                margin-left: .5rem;
-                display: inline-block;
-                width: 15px;
-                vertical-align: middle;
-            }
-
-            &.success {
-                animation: blink 0.6s alternate 7;
-                color: white;
-                transition: none;
-                border: 3px solid $text-color;
-                transform: scale(1.2);
-            }
-        }
+      }
     }
+
+    > .input {
+      > input {
+        @include form-element(left);
+        -moz-appearance: textfield;
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        @include placeholder {
+          color: $text-color;
+          opacity: 0.5;
+        }
+      }
+
+      > button {
+        @include form-element(right);
+        cursor: pointer;
+      }
+    }
+
+    > .generated-text {
+      p:first-child {
+        margin-top: 0;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      p {
+        text-align: justify;
+
+        @include phone-screens {
+          text-align: left;
+        }
+      }
+
+      border: 3px solid $focus-input-color;
+      border-radius: 5px;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+    }
+
+    > .copy-button {
+      @include form-element(left);
+      cursor: pointer;
+
+      > .copy-cta {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      > .copy-icon {
+        margin-left: 0.5rem;
+        display: inline-block;
+        width: 15px;
+        vertical-align: middle;
+      }
+
+      &.success {
+        animation: blink 0.6s alternate 7;
+        color: white;
+        transition: none;
+        border: 3px solid $text-color;
+        transform: scale(1.2);
+      }
+    }
+  }
 }

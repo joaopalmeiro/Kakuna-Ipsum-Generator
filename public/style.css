@@ -68,12 +68,12 @@ body {
       background-color: #fcfcfc;
       border-left: 3px solid;
       border-radius: 5px;
-      -webkit-transition: border-color .5s ease-out;
-      -o-transition: border-color .5s ease-out;
-      transition: border-color .5s ease-out;
+      -webkit-transition: border-color 0.5s ease-out;
+      -o-transition: border-color 0.5s ease-out;
+      transition: border-color 0.5s ease-out;
       -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
               box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-      padding: .5rem;
+      padding: 0.5rem;
       border-left-color: #999999;
       font-family: "Roboto", sans-serif;
       -moz-appearance: textfield; }
@@ -89,30 +89,30 @@ body {
         margin: 0; }
       body .kakuna-generator > .input > input.placeholder {
         color: #2f2f2f;
-        opacity: .5; }
+        opacity: 0.5; }
       body .kakuna-generator > .input > input:-moz-placeholder {
         color: #2f2f2f;
-        opacity: .5; }
+        opacity: 0.5; }
       body .kakuna-generator > .input > input::-moz-placeholder {
         color: #2f2f2f;
-        opacity: .5; }
+        opacity: 0.5; }
       body .kakuna-generator > .input > input:-ms-input-placeholder {
         color: #2f2f2f;
-        opacity: .5; }
+        opacity: 0.5; }
       body .kakuna-generator > .input > input::-webkit-input-placeholder {
         color: #2f2f2f;
-        opacity: .5; }
+        opacity: 0.5; }
     body .kakuna-generator > .input > button {
       border: 1px solid #eeeeee;
       background-color: #fcfcfc;
       border-right: 3px solid;
       border-radius: 5px;
-      -webkit-transition: border-color .5s ease-out;
-      -o-transition: border-color .5s ease-out;
-      transition: border-color .5s ease-out;
+      -webkit-transition: border-color 0.5s ease-out;
+      -o-transition: border-color 0.5s ease-out;
+      transition: border-color 0.5s ease-out;
       -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
               box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-      padding: .5rem;
+      padding: 0.5rem;
       border-right-color: #999999;
       font-family: "Roboto", sans-serif;
       cursor: pointer; }
@@ -143,12 +143,12 @@ body {
       background-color: #fcfcfc;
       border-left: 3px solid;
       border-radius: 5px;
-      -webkit-transition: border-color .5s ease-out;
-      -o-transition: border-color .5s ease-out;
-      transition: border-color .5s ease-out;
+      -webkit-transition: border-color 0.5s ease-out;
+      -o-transition: border-color 0.5s ease-out;
+      transition: border-color 0.5s ease-out;
       -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
               box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-      padding: .5rem;
+      padding: 0.5rem;
       border-left-color: #999999;
       font-family: "Roboto", sans-serif;
       cursor: pointer; }
@@ -163,7 +163,7 @@ body {
         display: inline-block;
         vertical-align: middle; }
       body .kakuna-generator > .copy-button > .copy-icon {
-        margin-left: .5rem;
+        margin-left: 0.5rem;
         display: inline-block;
         width: 15px;
         vertical-align: middle; }
