@@ -1,180 +1,309 @@
+/*!
+ * kakuna-ipsum-generator v1.0.1
+ * A 'hard' coded Lorem Ipsum Generator that generates paragraphs with the famous 'KAKUNA used HARDEN!'
+ * (c) 2019 
+ * MIT License
+ * git+https://github.com/joaopalmeiro/Kakuna-Ipsum-Generator.git
+ */
+
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 @-webkit-keyframes blink {
   from {
-    background: #fcfcfc; }
+    background: #fcfcfc;
+  }
   to {
-    background: #cc0000; } }
+    background: #cc0000;
+  }
+}
 @keyframes blink {
   from {
-    background: #fcfcfc; }
+    background: #fcfcfc;
+  }
   to {
-    background: #cc0000; } }
+    background: #cc0000;
+  }
+}
 
+/* line 80, style.scss */
 html {
   background-color: #f6cd31;
   color: #2f2f2f;
   font-family: "Roboto", sans-serif;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box; }
+          box-sizing: border-box;
+}
 
+/* line 87, style.scss */
 *,
 *:before,
 *:after {
   -webkit-box-sizing: inherit;
-          box-sizing: inherit; }
+          box-sizing: inherit;
+}
 
+/* line 93, style.scss */
 body {
-  margin: 50px; }
-  @media (max-width: 500px) {
-    body {
-      margin: 25px; } }
-  body h1,
-  body p.description {
-    margin: 0; }
-  body .kakuna-generator {
-    display: grid;
-    grid-gap: 50px;
-    grid-template-rows: repeat(5, auto);
-    justify-items: center; }
-    body .kakuna-generator > .header {
-      display: grid;
-      grid-gap: 25px;
-      grid-template-columns: auto auto;
-      grid-template-rows: 1fr 1fr; }
-      @media (max-width: 700px) {
-        body .kakuna-generator > .header {
-          grid-template-columns: auto;
-          grid-template-rows: repeat(3, auto);
-          justify-items: center; } }
-      body .kakuna-generator > .header > .logo {
-        min-width: 200px;
-        display: grid;
-        grid-row: span 2; }
-        @media (max-width: 700px) {
-          body .kakuna-generator > .header > .logo {
-            grid-row: span 1; } }
-      body .kakuna-generator > .header > .title {
-        -ms-flex-item-align: end;
-            align-self: end;
-        text-transform: uppercase; }
-        @media (max-width: 500px) {
-          body .kakuna-generator > .header > .title {
-            text-align: center; } }
-      @media (max-width: 700px) {
-        body .kakuna-generator > .header .description {
-          text-align: center; } }
-    body .kakuna-generator > .input > input {
-      border: 1px solid #eeeeee;
-      background-color: #fcfcfc;
-      border-left: 3px solid;
-      border-radius: 5px;
-      -webkit-transition: border-color 0.5s ease-out;
-      -o-transition: border-color 0.5s ease-out;
-      transition: border-color 0.5s ease-out;
-      -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-              box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-      padding: 0.5rem;
-      border-left-color: #999999;
-      font-family: "Roboto", sans-serif;
-      -moz-appearance: textfield; }
-      body .kakuna-generator > .input > input:hover {
-        border-left-color: #2f2f2f; }
-      body .kakuna-generator > .input > input:focus {
-        border-left-color: #9c7b00;
-        outline: none; }
-      body .kakuna-generator > .input > input:invalid {
-        border-left-color: #cc0000; }
-      body .kakuna-generator > .input > input::-webkit-inner-spin-button, body .kakuna-generator > .input > input::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        margin: 0; }
-      body .kakuna-generator > .input > input.placeholder {
-        color: #2f2f2f;
-        opacity: 0.5; }
-      body .kakuna-generator > .input > input:-moz-placeholder {
-        color: #2f2f2f;
-        opacity: 0.5; }
-      body .kakuna-generator > .input > input::-moz-placeholder {
-        color: #2f2f2f;
-        opacity: 0.5; }
-      body .kakuna-generator > .input > input:-ms-input-placeholder {
-        color: #2f2f2f;
-        opacity: 0.5; }
-      body .kakuna-generator > .input > input::-webkit-input-placeholder {
-        color: #2f2f2f;
-        opacity: 0.5; }
-    body .kakuna-generator > .input > button {
-      border: 1px solid #eeeeee;
-      background-color: #fcfcfc;
-      border-right: 3px solid;
-      border-radius: 5px;
-      -webkit-transition: border-color 0.5s ease-out;
-      -o-transition: border-color 0.5s ease-out;
-      transition: border-color 0.5s ease-out;
-      -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-              box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-      padding: 0.5rem;
-      border-right-color: #999999;
-      font-family: "Roboto", sans-serif;
-      cursor: pointer; }
-      body .kakuna-generator > .input > button:hover {
-        border-right-color: #2f2f2f; }
-      body .kakuna-generator > .input > button:focus {
-        border-right-color: #9c7b00;
-        outline: none; }
-      body .kakuna-generator > .input > button:invalid {
-        border-right-color: #cc0000; }
-    body .kakuna-generator > .generated-text {
-      border: 3px solid #9c7b00;
-      border-radius: 5px;
-      -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-              box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-      padding: 10px; }
-      body .kakuna-generator > .generated-text p:first-child {
-        margin-top: 0; }
-      body .kakuna-generator > .generated-text p:last-child {
-        margin-bottom: 0; }
-      body .kakuna-generator > .generated-text p {
-        text-align: justify; }
-        @media (max-width: 500px) {
-          body .kakuna-generator > .generated-text p {
-            text-align: left; } }
-    body .kakuna-generator > .copy-button {
-      border: 1px solid #eeeeee;
-      background-color: #fcfcfc;
-      border-left: 3px solid;
-      border-radius: 5px;
-      -webkit-transition: border-color 0.5s ease-out;
-      -o-transition: border-color 0.5s ease-out;
-      transition: border-color 0.5s ease-out;
-      -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-              box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-      padding: 0.5rem;
-      border-left-color: #999999;
-      font-family: "Roboto", sans-serif;
-      cursor: pointer; }
-      body .kakuna-generator > .copy-button:hover {
-        border-left-color: #2f2f2f; }
-      body .kakuna-generator > .copy-button:focus {
-        border-left-color: #9c7b00;
-        outline: none; }
-      body .kakuna-generator > .copy-button:invalid {
-        border-left-color: #cc0000; }
-      body .kakuna-generator > .copy-button > .copy-cta {
-        display: inline-block;
-        vertical-align: middle; }
-      body .kakuna-generator > .copy-button > .copy-icon {
-        margin-left: 0.5rem;
-        display: inline-block;
-        width: 15px;
-        vertical-align: middle; }
-      body .kakuna-generator > .copy-button.success {
-        -webkit-animation: blink 0.6s alternate 7;
-                animation: blink 0.6s alternate 7;
-        color: white;
-        -webkit-transition: none;
-        -o-transition: none;
-        transition: none;
-        border: 3px solid #2f2f2f;
-        -webkit-transform: scale(1.2);
-            -ms-transform: scale(1.2);
-                transform: scale(1.2); }
+  margin: 50px;
+}
+
+@media (max-width: 500px) {
+  /* line 93, style.scss */
+  body {
+    margin: 25px;
+  }
+}
+
+/* line 100, style.scss */
+body h1,
+body p.description {
+  margin: 0;
+}
+
+/* line 105, style.scss */
+body .kakuna-generator {
+  display: grid;
+  grid-gap: 50px;
+  grid-template-rows: repeat(5, auto);
+  justify-items: center;
+}
+
+/* line 111, style.scss */
+body .kakuna-generator > .header {
+  display: grid;
+  grid-gap: 25px;
+  grid-template-columns: auto auto;
+  grid-template-rows: 1fr 1fr;
+}
+
+@media (max-width: 700px) {
+  /* line 111, style.scss */
+  body .kakuna-generator > .header {
+    grid-template-columns: auto;
+    grid-template-rows: repeat(3, auto);
+    justify-items: center;
+  }
+}
+
+/* line 123, style.scss */
+body .kakuna-generator > .header > .logo {
+  min-width: 200px;
+  display: grid;
+  grid-row: span 2;
+}
+
+@media (max-width: 700px) {
+  /* line 123, style.scss */
+  body .kakuna-generator > .header > .logo {
+    grid-row: span 1;
+  }
+}
+
+/* line 133, style.scss */
+body .kakuna-generator > .header > .title {
+  -ms-flex-item-align: end;
+      align-self: end;
+  text-transform: uppercase;
+}
+
+@media (max-width: 500px) {
+  /* line 133, style.scss */
+  body .kakuna-generator > .header > .title {
+    text-align: center;
+  }
+}
+
+@media (max-width: 700px) {
+  /* line 142, style.scss */
+  body .kakuna-generator > .header .description {
+    text-align: center;
+  }
+}
+
+/* line 150, style.scss */
+body .kakuna-generator > .input > input {
+  border: 1px solid #eeeeee;
+  background-color: #fcfcfc;
+  border-left: 3px solid;
+  border-radius: 5px;
+  -webkit-transition: border-color 0.5s ease-out;
+  transition: border-color 0.5s ease-out;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  border-left-color: #999999;
+  font-family: "Roboto", sans-serif;
+  -moz-appearance: textfield;
+}
+
+/* line 66, style.scss */
+body .kakuna-generator > .input > input:hover {
+  border-left-color: #2f2f2f;
+}
+
+/* line 70, style.scss */
+body .kakuna-generator > .input > input:focus {
+  border-left-color: #9c7b00;
+  outline: none;
+}
+
+/* line 75, style.scss */
+body .kakuna-generator > .input > input:invalid {
+  border-left-color: #cc0000;
+}
+
+/* line 154, style.scss */
+body .kakuna-generator > .input > input::-webkit-inner-spin-button, body .kakuna-generator > .input > input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* line 12, style.scss */
+body .kakuna-generator > .input > input.placeholder {
+  color: #2f2f2f;
+  opacity: 0.5;
+}
+
+/* line 16, style.scss */
+body .kakuna-generator > .input > input:-moz-placeholder {
+  color: #2f2f2f;
+  opacity: 0.5;
+}
+
+/* line 20, style.scss */
+body .kakuna-generator > .input > input::-moz-placeholder {
+  color: #2f2f2f;
+  opacity: 0.5;
+}
+
+/* line 24, style.scss */
+body .kakuna-generator > .input > input:-ms-input-placeholder {
+  color: #2f2f2f;
+  opacity: 0.5;
+}
+
+/* line 28, style.scss */
+body .kakuna-generator > .input > input::-webkit-input-placeholder {
+  color: #2f2f2f;
+  opacity: 0.5;
+}
+
+/* line 166, style.scss */
+body .kakuna-generator > .input > button {
+  border: 1px solid #eeeeee;
+  background-color: #fcfcfc;
+  border-right: 3px solid;
+  border-radius: 5px;
+  -webkit-transition: border-color 0.5s ease-out;
+  transition: border-color 0.5s ease-out;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  border-right-color: #999999;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+}
+
+/* line 66, style.scss */
+body .kakuna-generator > .input > button:hover {
+  border-right-color: #2f2f2f;
+}
+
+/* line 70, style.scss */
+body .kakuna-generator > .input > button:focus {
+  border-right-color: #9c7b00;
+  outline: none;
+}
+
+/* line 75, style.scss */
+body .kakuna-generator > .input > button:invalid {
+  border-right-color: #cc0000;
+}
+
+/* line 172, style.scss */
+body .kakuna-generator > .generated-text {
+  border: 3px solid #9c7b00;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+/* line 173, style.scss */
+body .kakuna-generator > .generated-text p:first-child {
+  margin-top: 0;
+}
+
+/* line 177, style.scss */
+body .kakuna-generator > .generated-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* line 181, style.scss */
+body .kakuna-generator > .generated-text p {
+  text-align: justify;
+}
+
+@media (max-width: 500px) {
+  /* line 181, style.scss */
+  body .kakuna-generator > .generated-text p {
+    text-align: left;
+  }
+}
+
+/* line 195, style.scss */
+body .kakuna-generator > .copy-button {
+  border: 1px solid #eeeeee;
+  background-color: #fcfcfc;
+  border-left: 3px solid;
+  border-radius: 5px;
+  -webkit-transition: border-color 0.5s ease-out;
+  transition: border-color 0.5s ease-out;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  border-left-color: #999999;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+}
+
+/* line 66, style.scss */
+body .kakuna-generator > .copy-button:hover {
+  border-left-color: #2f2f2f;
+}
+
+/* line 70, style.scss */
+body .kakuna-generator > .copy-button:focus {
+  border-left-color: #9c7b00;
+  outline: none;
+}
+
+/* line 75, style.scss */
+body .kakuna-generator > .copy-button:invalid {
+  border-left-color: #cc0000;
+}
+
+/* line 199, style.scss */
+body .kakuna-generator > .copy-button > .copy-cta {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* line 204, style.scss */
+body .kakuna-generator > .copy-button > .copy-icon {
+  margin-left: 0.5rem;
+  display: inline-block;
+  width: 15px;
+  vertical-align: middle;
+}
+
+/* line 211, style.scss */
+body .kakuna-generator > .copy-button.success {
+  -webkit-animation: blink 0.6s alternate 7;
+          animation: blink 0.6s alternate 7;
+  color: white;
+  -webkit-transition: none;
+  transition: none;
+  border: 3px solid #2f2f2f;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}

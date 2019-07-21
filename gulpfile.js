@@ -1,70 +1,126 @@
-var gulp = require('gulp'),
-    sass = require('gulp-sass'),
-    browserSync = require('browser-sync'),
-    nodemon = require('gulp-nodemon'),
-    autoprefixer = require('gulp-autoprefixer'),
-    rename = require('gulp-rename'),
-    cssnano = require('gulp-cssnano'),
-    sourcemaps = require('gulp-sourcemaps');
+var { gulp, src, dest, watch, series, parallel } = require("gulp");
+var sass = require("gulp-sass");
+var browserSync = require("browser-sync");
+var nodemon = require("gulp-nodemon");
+var prefix = require("gulp-autoprefixer");
+var rename = require("gulp-rename");
+var minify = require("gulp-cssnano");
+var header = require("gulp-header");
+var jshint = require("gulp-jshint");
+var package = require("./package.json");
 
 var RELOAD_DELAY = 500;
 
-gulp.task('css', function () {
-    return gulp.src('style.scss')
-        .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer('last 4 version'))
-        .pipe(gulp.dest('public'))
-        .pipe(cssnano())
-        .pipe(rename({
-            suffix: '.min'
-        }))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('public'))
-        .pipe(browserSync.reload({
-            stream: true
-        }));
-});
+var banner = {
+  full:
+    "/*!\n" +
+    " * <%= package.name %> v<%= package.version %>\n" +
+    " * <%= package.description %>\n" +
+    " * (c) " +
+    new Date().getFullYear() +
+    " <%= package.author.name %>\n" +
+    " * <%= package.license %> License\n" +
+    " * <%= package.repository.url %>\n" +
+    " */\n\n",
+  min:
+    "/*!" +
+    " <%= package.name %> v<%= package.version %>" +
+    " | (c) " +
+    new Date().getFullYear() +
+    " <%= package.author.name %>" +
+    " | <%= package.license %> License" +
+    " | <%= package.repository.url %>" +
+    " */\n"
+};
 
-gulp.task('js', function () {
-    return gulp.src('*.js');
-});
+var lintScripts = function(done) {
+  return src("*.js")
+    .pipe(jshint())
+    .pipe(jshint.reporter("jshint-stylish"));
+};
 
-gulp.task('nodemon', function (cb) {
-    var called = false;
-    return nodemon({
-            script: 'app.js',
-            watch: ['app.js']
-        })
-        .on('start', function onStart() {
-            if (!called) {
-                cb();
-            }
-            called = true;
-        })
-        .on('restart', function onRestart() {
-            setTimeout(function reload() {
-                browserSync.reload({
-                    stream: false
-                });
-            }, RELOAD_DELAY);
+var buildStyles = function(done) {
+  return src("style.scss")
+    .pipe(
+      sass({
+        outputStyle: "expanded",
+        sourceComments: true
+      }).on("error", sass.logError)
+    )
+    .pipe(prefix())
+    .pipe(header(banner.full, { package: package }))
+    .pipe(dest("public"))
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(
+      minify({
+        discardComments: {
+          removeAll: true
+        }
+      })
+    )
+    .pipe(header(banner.min, { package: package }))
+    .pipe(dest("public"))
+    .pipe(
+      browserSync.reload({
+        stream: true
+      })
+    );
+};
+
+var startNodemon = function(done) {
+  var called = false;
+  return nodemon({
+    script: "app.js",
+    watch: ["app.js"]
+  })
+    .on("start", function onStart() {
+      if (!called) {
+        done();
+      }
+      called = true;
+    })
+    .on("restart", function onRestart() {
+      setTimeout(function reload() {
+        browserSync.reload({
+          stream: false
         });
-});
-
-gulp.task('browser-sync', ['nodemon'], function () {
-    browserSync({
-        proxy: 'http://localhost:3000',
-        port: 4000,
-        browser: 'chrome' // Just 'chrome' (instead of 'google-chrome' or 'google chrome') for Windows
+      }, RELOAD_DELAY);
     });
-});
+};
 
-gulp.task('bs-reload', function () {
-    browserSync.reload();
-});
+var startServer = function(done) {
+  browserSync.init(
+    {
+      proxy: "http://localhost:3000",
+      port: 4000,
+      browser: "chrome" // Just 'chrome' (instead of 'google-chrome' or 'google chrome') for Windows
+    },
+    done
+  );
 
-gulp.task('default', ['browser-sync'], function () {
-    gulp.watch("*.scss", ['css']);
-    gulp.watch('*.js', ['js', browserSync.reload]);
-    gulp.watch('public/*.html', ['bs-reload']);
-});
+  // Signal completion
+  done();
+};
+
+var reloadBrowser = function(done) {
+  browserSync.reload();
+  done();
+};
+
+var watchSource = function(done) {
+  watch("*", series(exports.default, reloadBrowser));
+  watch("public/*.html", reloadBrowser);
+  done();
+};
+
+/**
+ * Export Tasks
+ */
+
+// Default task
+// gulp
+exports.default = series(parallel(lintScripts, buildStyles));
+
+// Watch and reload task
+// gulp watch
+exports.watch = series(exports.default, startNodemon, startServer, watchSource);
