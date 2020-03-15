@@ -10,7 +10,7 @@ A **'hard' coded Lorem Ipsum Generator** that generates paragraphs with the famo
    - `cd YOUR_FOLDER_NAME`
 3. Install NPM dependencies:
    - `npm install`
-4. Run one of the task runners:
+4. Run one of the task runners (if necessary, install [gulp](https://gulpjs.com/) first):
    - `gulp` manually compiles files.
    - `gulp watch` automatically compiles files and applies changes using [BrowserSync](https://browsersync.io/) when you make changes to the source files.
 

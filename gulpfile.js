@@ -4,7 +4,8 @@ var browserSync = require("browser-sync");
 var nodemon = require("gulp-nodemon");
 var prefix = require("gulp-autoprefixer");
 var rename = require("gulp-rename");
-var minify = require("gulp-cssnano");
+// var minify = require("gulp-cssnano");
+var postcss = require("gulp-postcss"); // Minify
 var header = require("gulp-header");
 var jshint = require("gulp-jshint");
 var package = require("./package.json");
@@ -51,13 +52,7 @@ var buildStyles = function(done) {
     .pipe(header(banner.full, { package: package }))
     .pipe(dest("public"))
     .pipe(rename({ suffix: ".min" }))
-    .pipe(
-      minify({
-        discardComments: {
-          removeAll: true
-        }
-      })
-    )
+    .pipe(postcss())
     .pipe(header(banner.min, { package: package }))
     .pipe(dest("public"))
     .pipe(
